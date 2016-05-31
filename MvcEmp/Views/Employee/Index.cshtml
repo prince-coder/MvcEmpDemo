@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MvcEmpDemo.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees</h2>
+
+
+@*<dl class="dl-horizontal">*@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpCity)
+                    </td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = item.EmpId })</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = item.EmpId })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = item.EmpId })</td>
+                </tr>
+            </tbody>
+
+            
+                @*<dt>
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.city)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.city)
+                        </dd>
+
+                    </dl>*@
+        }
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
